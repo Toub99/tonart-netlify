@@ -1,10 +1,10 @@
 <template>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <nav id="nav" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">
+      <a class="navbar-brand" href="#">
         <img src="../assets/logo.jpg" alt="TonArt" width="40" height="40" />
         TonArt
-      </router-link>
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -18,8 +18,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link class="nav-link" to="/galerie">Galerie</router-link>
-          <router-link class="nav-link" to="/events">Events</router-link>
+          <a class="nav-link" href="#about">Über uns</a>
+          <a class="nav-link" href="#events">Veranstaltungen</a>
         </div>
       </div>
     </div>
