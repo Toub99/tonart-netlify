@@ -10,8 +10,8 @@
     <div data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="0" class="scrollspy-example" style="height: 200vh" tabindex="0">
       <About/>
       <hr/>
-      <h4 id="events">Second heading</h4>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      <Events/>
+      <hr/>
     </div>
   </div>
 </template>
@@ -20,19 +20,16 @@
 import { Vue, Options } from 'vue-class-component'
 import Navbar from '@/views/Navbar.vue'
 import About from '@/views/About.vue'
+import Events from '@/views/Events.vue'
 
 @Options({
   components: {
     Navbar,
-    About
+    About,
+    Events
   }
 })
 export default class App extends Vue {
-    transition() {
-      console.log('hello')
-      el = document.getElementById('transit')
-      el.classList.add('less-margin')
-    }
 }
 </script>
 
@@ -57,9 +54,9 @@ export default class App extends Vue {
 }
 
 .transit {
-  position: fixed;
   animation: slide-up 1s;
   margin-top: 50vh;
+  scroll-behavior: unset;
   /* transition: margin-top 1s; */
 }
 
@@ -80,7 +77,60 @@ export default class App extends Vue {
   }
 }
 
-@media (min-width: 1217px) {
+@keyframes slide-up30 {
+  from {
+    margin-top: 100vh;
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 30vh;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .background-image {
+  display: flex;
+  background-image: url('assets/logo.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position-y: top;
+  background-color: black;
+  background-attachment: fixed;
+  justify-content: center;
+  align-items: center;
+  /* background-attachment: fixed; */
+  height: 75vh;
+}
+}
+
+@media (max-width: 767.98px) {
+  .background-image {
+    display: flex;
+    background-image: url('assets/logo.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-color: black;
+    background-attachment: fixed;
+    justify-content: center;
+    align-items: center;
+    /* background-attachment: fixed; */
+    height: 50vh;
+  }
+
+  .transit {
+  position: fixed;
+  animation: slide-up30 1s;
+  margin-top: 30vh;
+  /* transition: margin-top 1s; */
+}
+}
+
+/* @media (min-width: 1217px) {
   .background-image {
     background-image: url('assets/logo.jpg');
     background-size: contain;
@@ -89,7 +139,7 @@ export default class App extends Vue {
     background-position-y: top;
     background-color: black;
     /* background-attachment: fixed; */
-    height: 100vh;
-  }
-}
+    /* height: 100vh;
+  } 
+} */
 </style>
