@@ -12,6 +12,7 @@
       <hr/>
       <Events/>
       <hr/>
+      <Gallery/>
     </div>
   </div>
 </template>
@@ -21,12 +22,14 @@ import { Vue, Options } from 'vue-class-component'
 import Navbar from '@/views/Navbar.vue'
 import About from '@/views/About.vue'
 import Events from '@/views/Events.vue'
+import Gallery from '@/views/Gallery.vue'
 
 @Options({
   components: {
     Navbar,
     About,
-    Events
+    Events,
+    Gallery
   }
 })
 export default class App extends Vue {
