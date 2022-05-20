@@ -1,10 +1,13 @@
 <template>
   <div id="app">
     <Navbar/>
+    <Contact/>
     <div id="background-image" class="background-image">
       <div id="transit" class="transit">
-        <button type="button" class="btn btn-lg btn-outline-light mx-2">Über uns</button>
-        <button type="button" class="btn btn-lg btn-outline-light mx-2">Veranstaltungen</button>
+        <button type="button" onclick="location.href = '#about'" class="btn btn-lg btn-outline-light mx-2">Über uns</button>
+        <button type="button" onclick="location.href = '#events'" class="btn btn-lg btn-outline-light mx-2">Veranstaltungen</button>
+        <button type="button" onclick="location.href = '#gallery'" class="btn btn-lg btn-outline-light mx-2">Galerie</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn btn-lg btn-outline-light mx-2">Kontakt</button>
       </div>
     </div>
     <div data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="0" class="scrollspy-example" style="height: 200vh" tabindex="0">
@@ -23,16 +26,32 @@ import Navbar from '@/views/Navbar.vue'
 import About from '@/views/About.vue'
 import Events from '@/views/Events.vue'
 import Gallery from '@/views/Gallery.vue'
+import Contact from "@/views/Contact.vue";
 
 @Options({
   components: {
     Navbar,
     About,
     Events,
-    Gallery
+    Gallery,
+    Contact
   }
 })
 export default class App extends Vue {
+    navigate(event) {
+        switch (event.target.id) {
+            case "about":
+                window.location.href = "#about";
+                break;
+            case "events":
+                console.log("it worked")
+                window.location.href = "#events"
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 </script>
 

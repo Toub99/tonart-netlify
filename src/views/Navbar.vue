@@ -20,6 +20,8 @@
         <div class="navbar-nav">
           <a class="nav-link" href="#about">Über uns</a>
           <a class="nav-link" href="#events">Veranstaltungen</a>
+          <a class="nav-link" href="#gallery">Galerie</a>
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Kontakt</a>
         </div>
       </div>
     </div>

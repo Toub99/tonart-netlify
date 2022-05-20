@@ -1,5 +1,7 @@
 <template>
+    <div id="gallery">
         <Carousel/>
+    </div>
 </template>
 
 <script>
