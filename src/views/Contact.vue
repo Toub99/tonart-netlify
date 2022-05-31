@@ -24,23 +24,36 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="emailInput" class="form-label"
-              >Email address</label
+              >E-Mail Adresse</label
             >
             <input
               type="email"
               class="form-control"
               id="emailInput"
               placeholder="name@example.com"
+              v-model="dataToSend.mailAddress"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="subjectInput" class="form-label"
+              >Betreff</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="subjectInput"
+              v-model="dataToSend.subject"
             />
           </div>
           <div class="mb-3">
             <label for="textArea" class="form-label"
-              >Example textarea</label
+              >Nachricht</label
             >
             <textarea
               class="form-control"
               id="textArea"
               rows="6"
+              v-model="dataToSend.text"
             ></textarea>
           </div>
         </div>
@@ -49,6 +62,7 @@
             type="button"
             class="btn btn-primary"
             data-bs-dismiss="modal"
+            v-on:click="send()"
           >
             Submit
           </button>
@@ -65,28 +79,26 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Vue } from "vue-class-component";
-import nodemailer from "nodemailer";
+import { config } from "@/config/config.json";
 
 export default class Contact extends Vue {
-    transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            user: "tobeyora99@gmail.com",
-            password: "DieSims3."
-        }
-    })
+    dataToSend: Object = {
+        mailAddress: "",
+        subject: "",
+        text: ""
+    }
 
-    mailOptions = {
-        from: 'youremail@gmail.com',
-        to: 'myfriend@yahoo.com',
-        subject: 'Sending Email using Node.js',
-        text: 'That was easy!'
-    };
-
-    send() {
-        this.transporter.sendMail(this.mailOptions, (err, info) => err ? console.log(err) : console.log("Success: " + info.response));
+    public send() {
+        console.log("hello")
+        fetch(config.backendEndpoint + "send", { // Port 3000
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.dataToSend)
+        }).then(res => console.log(res))
     }
 }
 </script>

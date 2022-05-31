@@ -1,0 +1,6 @@
+{
+    "config": {
+        "backendEndpoint": "http://localhost:3000/",
+        "frontendEndpoint": "http://localhost:8080/"
+    }
+}
