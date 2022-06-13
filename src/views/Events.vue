@@ -67,7 +67,7 @@
 
 <script>
 import { Vue } from "vue-class-component";
-import events from "@/mockdata/events-mock.json";
+import events from "@/assets/mockdata/events-mock.json";
 
 export default class Events extends Vue {
     all_events = events.events;
