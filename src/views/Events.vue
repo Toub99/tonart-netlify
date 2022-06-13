@@ -15,7 +15,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="e in current_events">
+                        <tr v-for="e in current_events" :key="e">
                             <th scope="row">{{e.date}}</th>
                             <td>Bruchsal</td>
                             <td>{{e.event}}</td>
@@ -42,7 +42,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="e in all_events">
+                                    <tr v-for="e in all_events" :key="e">
                                         <th scope="row">{{e.date}}</th>
                                         <td>Bruchsal</td>
                                         <td>{{e.event}}</td>
