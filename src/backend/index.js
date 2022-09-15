@@ -28,6 +28,10 @@ var transporter = nodemailer.createTransport({
 
 app.options('/send', cors()) // enable pre-flight request
 
+app.get("/", (req, res) => {
+    res.end("Backend providing Email Service via nodemailer")
+})
+
 app.post("/send", cors(), (req, res) => {
     var mailOptions = {
       from: 'youremail@gmail.com', // will be overwritten by t-onlie smtp server to 'tobeyora@t-online.de
@@ -46,10 +50,6 @@ app.post("/send", cors(), (req, res) => {
     }); 
     console.log(req.body)
     res.end("Ende der Antwort!")
-})
-
-app.get("/", (req, res) => {
-    res.end("Backend providing Email Service via nodemailer")
 })
 
 app.listen(3000, () => {

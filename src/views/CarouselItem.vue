@@ -1,23 +1,10 @@
 <template>
-  <div>
-    
-      <img :src="getImageUrl(thumbnailPath)" class="card-img-top" alt="thumbnail" />
-      <div class="card-body">
+  <div class="size card bg-dark text-white">
+      <img :src="getImageUrl(thumbnailPath)" alt="thumbnail" />
+      <div class="card-img-overlay">
         <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
-    </div>
-    <!-- <img
-      v-for="path in paths"
-      :src="getImageUrl(path)"
-      alt="Test"
-      ref="images"
-      :key="path"
-    /> -->
+  </div>
 </template>
 
 <script lang="ts">
@@ -38,12 +25,19 @@ export default class CarouselItem extends Vue {
 </script>
 
 <style scoped>
-.card {
-  height: 40vh;
-}
-.obj-fit-cover {
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(50%);
+}
+
+.card:hover {
+  filter: brightness(70%);
+}
+
+.size {
+  width: 40vh;
+  height: 40vh;
 }
 </style>

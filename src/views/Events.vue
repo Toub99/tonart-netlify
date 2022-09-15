@@ -2,10 +2,9 @@
   <div id="events" class="about container">
     <div class="row mt-5">
       <div class="col-md"></div>
-      <div class="col-md-8">
-          <div class="card text-center">
-            <div class="card-body">
-                <h1 class="card-title">Veranstaltungen</h1>
+      <div class="col-md-9">
+          <div class="text-center">
+                <h1>Veranstaltungen</h1>
                 <table class="table">
                     <thead>
                         <tr>
@@ -23,7 +22,7 @@
                     </tbody>
                 </table>
                 <!-- Modal Button -->
-                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#eventsModal">Alle Veranstaltungen</button>
+                <button class="btn btn-dark mt-5" data-bs-toggle="modal" data-bs-target="#eventsModal">Alle Veranstaltungen</button>
 
                 <div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="VeranstaltungenModal" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
@@ -56,7 +55,6 @@
                         </div>
                         </div>
                     </div>
-                </div>
             </div>
           </div>
       </div>
@@ -76,4 +74,7 @@ export default class Events extends Vue {
 </script>
 
 <style scoped>
+.row {
+    height: 50vh;
+}
 </style>
